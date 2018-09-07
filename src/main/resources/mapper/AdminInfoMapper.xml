@@ -2,40 +2,39 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 设置为IUserDao接口方法提供sql语句配置 -->
-<mapper namespace="cn.com.hfut.dao.AccountMapper">
-	<resultMap id="accountMap" type="cn.com.hfut.model.Account">
-		<id column="account_id" jdbcType="INTEGER" property="accountId" javaType="int"/>
-		<result column="recommender_id" jdbcType="INTEGER" property="recommenderId" javaType="int"/>
-		<result column="login_name" jdbcType="VARCHAR" property="loginName" javaType="String"/>
-		<result column="login_passwd" jdbcType="VARCHAR" property="password" javaType="String"/>
-		<result column="status" jdbcType="VARCHAR" property="status" javaType="String" />
-		<result column="idcard_no" jdbcType="VARCHAR" property="idCardNo" javaType="String" />
-		<result column="birth_date" jdbcType="DATE" property="birthDate" javaType="Date" />
+<mapper namespace="cn.com.hfut.dao.AdminInfoMapper">
+	<resultMap id="adminInfoMap" type="cn.com.hfut.model.AdminInfo">
+		<id column="admin_id" jdbcType="INTEGER" property="adminId" javaType="int"/>
+		<result column="admin_code" jdbcType="VARCHAR" property="admincode" javaType="String"/>
+		<result column="password" jdbcType="VARCHAR" property="password" javaType="String"/>
+		<result column="name" jdbcType="VARCHAR" property="name" javaType="String" />
 		<result column="telephone" jdbcType="VARCHAR" property="telephone" javaType="String" />
-
+		<result column="email" jdbcType="VARCHAR" property="email" javaType="String" />
+		<result column="enrolldate" jdbcType="DATE" property="enrollDate" javaType="Date" />
 	</resultMap>
 
 	<sql id="Column_list">
-		account_id,recommender_id,login_name,login_passwd,status,idcard_no,birth_date
+		admin_id,admin_code,password,name,telephone,email,enrollDate
 	</sql>
 	
 	
-    <select id="selectAccountByPrimaryKey" resultMap="accountMap" parameterType="int">
+    <select id="selectAdminInfoByPrimaryKey" resultMap="adminInfoMap" parameterType="int">
         SELECT 
         <include refid="Column_list"/>
-        FROM account where account_id = #{accountId}
+        FROM admin_info where admin_id = #{adminId}
     </select>
 
-    <select id="selectAllAccount" resultMap="accountMap">
+    <select id="selectAllAdminInfo" resultMap="adminInfoMap">
        <!-- select * from account  -->
         SELECT 
         <include refid="Column_list"/>
-        FROM account 
+        FROM admin_info 
     </select>
 
-    <insert id="insertAccount" parameterType="cn.com.hfut.model.Account">
+
+	<!--     <insert id="insertAccount" parameterType="cn.com.hfut.model.Account">
        INSERT INTO account VALUES (#{account_id,jdbcType=INTEGER},#{recommender_id,jdbcType=INTEGER},#{login_name,jdbcType=VARCHAR},#{login_passwd,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{create_date,jdbcType=TIMESTAMP},#{pause_date,jdbcType=DATE},#{close_date,jdbcType=DATE},#{real_name,jdbcType=VARCHAR},#{idcard_no,jdbcType=VARCHAR},#{birthdate,jdbcType=DATE},#{gender,jdbcType=VARCHAR},#{occupation,jdbcType=VARCHAR},#{telephone,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR},#{mailaddress,jdbcType=VARCHAR},#{zipcode,jdbcType=VARCHAR},#{qq,jdbcType=VARCHAR},#{last_login_time,jdbcType=DATE},#{last_login_ip,jdbcType=VARCHAR})
-    </insert>
+    </insert> -->
 
 
 

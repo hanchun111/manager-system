@@ -23,7 +23,8 @@
 hs_err_pid*
 
 #eclipce 文件
-/.setting
+/.settings
 /.classpath
 /.project
 /tartget
+/target/

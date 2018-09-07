@@ -6,6 +6,7 @@ import java.util.List;
 
 import cn.com.hfut.model.Account;
 
+
 public interface AccountMapper{
 	
 	public Account selectAccountByPrimaryKey(int accountId);
@@ -13,4 +14,7 @@ public interface AccountMapper{
 	public List<Account> selectAllAccount();
 	
 	public int insertAccount(Account account);
+
+	
+	
 }

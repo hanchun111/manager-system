@@ -18,10 +18,8 @@ public class AccountServiceIml implements AccountService{
 	AccountMapper accountMapper;
 
 	@Override
-	public Account getAccountByPrimaryKey(int accountId) {
-		
+	public Account getAccountByPrimaryKey(int accountId) {	
 		return accountMapper.selectAccountByPrimaryKey(accountId);
-		
 	}
 
 	@Override
@@ -33,6 +31,6 @@ public class AccountServiceIml implements AccountService{
 	public int insertAccount(Account account) {
 		return accountMapper.insertAccount(account);
 	}
-	
+
 	
 }
